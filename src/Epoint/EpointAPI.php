@@ -120,8 +120,7 @@ class EpointAPI
         $postFields = http_build_query([
             'data' => $encodedData,
             'signature' => $signature
-        ]);
-
+        ], '', "&");
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->baseUrl . $endpoint);

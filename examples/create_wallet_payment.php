@@ -20,7 +20,7 @@ $epoint = new EpointAPI($publicKey, $privateKey);
 [9] => M10
 [10] => BirBank
  */
-$create_payment = $epoint->createWalletPayment(Wallets::M10, "2", "AZN", "test11", "Wallet Payment test",  "en");
+$create_payment = $epoint->createWalletPayment(Wallets::M10, "2", "AZN", "test12", "Wallet Payment test",  "en");
 //
 $paymentUrl = $create_payment->getPaymentURL();
 $transactionId = $create_payment->getTransactionId();

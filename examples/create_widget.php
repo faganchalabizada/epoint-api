@@ -12,9 +12,9 @@ $dotenv->load();
 $publicKey = $_ENV['PUBLIC_KEY'] ?? '';
 $privateKey = $_ENV['PRIVATE_KEY'] ?? '';
 
-$epoint = new EpointAPI($publicKey, $privateKey);
+$epoint = new EpointAPI($publicKey, $privateKey, 1);
 
-$create_widget = $epoint->createWidgetUri("0.12", 5, "Apple&Google Pay widget");
+$create_widget = $epoint->createWidgetUri("0.12", "test16", "Apple&Google Pay widget");
 
 $widgetUrl = $create_widget->getWidgetURL();
 
