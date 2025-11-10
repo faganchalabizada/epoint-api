@@ -4,6 +4,7 @@ namespace FaganChalabizada\Epoint;
 
 use FaganChalabizada\Epoint\Enums\OperationCode;
 use FaganChalabizada\Epoint\Enums\PaymentStatus;
+use FaganChalabizada\Epoint\Enums\Wallets;
 use FaganChalabizada\Epoint\Exception\EpointException;
 use FaganChalabizada\Epoint\Response\APIResponse;
 use FaganChalabizada\Epoint\Response\CallbackResponse;
@@ -186,7 +187,7 @@ class EpointAPI
 
 
     /**
-     * @param $walletId
+     * @param Wallets $walletId
      * @param $amount
      * @param $currency
      * @param $orderId
@@ -195,12 +196,12 @@ class EpointAPI
      * @return CreateWalletPaymentResponse
      * @throws EpointException
      */
-    public function createWalletPayment($walletId, $amount, $currency, $orderId, $description, $language = "az"): CreateWalletPaymentResponse
+    public function createWalletPayment(Wallets $walletId, $amount, $currency, $orderId, $description, $language = "az"): CreateWalletPaymentResponse
     {
 
         $data = [
             'public_key' => $this->publicKey,
-            'wallet_id' => $walletId,
+            'wallet_id' => $walletId->value,
             'amount' => $amount,
             'currency' => $currency,
             'order_id' => $orderId,

@@ -2,6 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
+use FaganChalabizada\Epoint\Enums\Wallets;
 use FaganChalabizada\Epoint\EpointAPI;
 
 // Load .env from project root
@@ -19,7 +20,7 @@ $epoint = new EpointAPI($publicKey, $privateKey);
 [9] => M10
 [10] => BirBank
  */
-$create_payment = $epoint->createWalletPayment(9, "2", "AZN", "test11", "Wallet Payment test",  "en");
+$create_payment = $epoint->createWalletPayment(Wallets::M10, "2", "AZN", "test11", "Wallet Payment test",  "en");
 //
 $paymentUrl = $create_payment->getPaymentURL();
 $transactionId = $create_payment->getTransactionId();
