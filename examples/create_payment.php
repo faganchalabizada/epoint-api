@@ -16,7 +16,7 @@ $privateKey = $_ENV['PRIVATE_KEY'] ?? '';
 $epoint = new EpointAPI($publicKey, $privateKey);
 
 try {
-    $create_payment = $epoint->createPayment("0.12", "AZN", "test9", "dd", "aa.com", "aa.com", "en");
+    $create_payment = $epoint->createPayment("0.01", "AZN", "test15", "dd", "aa.com", "aa.com", "en");
 
     $paymentUrl = $create_payment->getPaymentURL();
     $transactionId = $create_payment->getTransactionId();

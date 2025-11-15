@@ -15,14 +15,14 @@ $privateKey = $_ENV['PRIVATE_KEY'] ?? '';
 
 $epoint = new EpointAPI($publicKey, $privateKey);
 
-$data = $_POST['data'];
-$signature = $_POST['signature'];
+$data = $_POST['data'] ?? '';
+$signature = $_POST['signature'] ?? '';
 
 try {
     $result = $epoint->processCallback($data, $signature);
 
     print_r($result);
 
-} catch (EpointException $e) {
+} catch (EpointException|Exception $e) {
     echo $e->getMessage();
 }

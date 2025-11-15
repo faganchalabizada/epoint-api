@@ -69,7 +69,7 @@ class EpointAPI
             orderId: $decodedData['order_id'] ?? null,
             status: isset($decodedData['status']) ? PaymentStatus::from($decodedData['status']) : null,
             code: $decodedData['code'] ?? null,
-            message: $decodedData['message'] ?? null,
+            message: $decodedData['message']['message'] ?? null,
             transaction: $decodedData['transaction'] ?? null,
             bankTransaction: $decodedData['bank_transaction'] ?? null,
             bankResponse: $decodedData['bank_response'] ?? null,
